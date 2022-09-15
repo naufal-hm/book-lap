@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_h_lapangan,access.h.lapangan,model_h_lapangan,,1,1,1,1
+access_h_jenislapangan,access.h.jenislapangan,model_h_jenislapangan,,1,1,1,1
+access_h_barang,access.h.barang,model_h_barang,,1,1,1,1
+access_h_barangkateg,access.h.barangkateg,model_h_barangkateg,,1,1,1,1
+access_h_member,access.h.member,model_h_member,,1,1,1,1
+access_h_trx,access.h.trx,model_h_trx,,1,1,1,1
+access_h_detailtrx,access.h.detailtrx,model_h_detailtrx,,1,1,1,1
+access_h_barangdatang,access.h.barangdatang,model_h_barangdatang,,1,1,1,1

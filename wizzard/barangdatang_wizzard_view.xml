@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="barangdatang_view_form_wizzard" model="ir.ui.view">
+        <field name="name">barangdatang.view.form</field>
+        <field name="model">h.barangdatang</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <group>
+                    <field name="barang_id"/>
+                    <field name="jumlah" />
+                </group>
+                <footer>
+                    <button string="confirm" name="button_barangdatang" type="object" class="btn btn-primary"/>
+                    <button string="cancel" special="cancel" class="btn btn-danger"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="barangdatang_action_wizzard" model="ir.actions.act_window">
+        <field name="name">Input barang warung</field>
+        <field name="res_model">h.barangdatang</field>
+        <field name="view_mode">tree,form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_id" ref="barangdatang_view_form_wizzard" />
+        <field name="target">new</field>
+    </record>
+
+
+    <menuitem
+        id="barangdatang_menu"
+        name="Input Barang"
+        action="barangdatang_action_wizzard"
+        parent="sport_root_menu"
+        sequence="10"/>
+
+</odoo>

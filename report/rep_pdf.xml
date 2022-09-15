@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_report_trx" model="ir.actions.report">
+        <field name="name">transaksi to pdf</field>
+        <field name="model">h.trx</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">halosport.report_trx</field>
+        <field name="report_file">halosport.report_trx</field>
+        <field name="print_report_name">'%s' % object.name</field>
+        <field name="binding_model_id" ref="model_h_trx"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_trx">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1>ini hasil</h1>
+                        
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="sport_root_menu"
+        name="HloSport"
+        sequence="10"/>
+
+
+    <menuitem
+        id="lapangan_menu_categ"
+        name="lapangan"
+        parent="sport_root_menu"
+        sequence="10"/>
+
+    <menuitem
+        id="warung_menu_categ"
+        name="warung"
+        parent="sport_root_menu"
+        sequence="10"/>
+
+</odoo>

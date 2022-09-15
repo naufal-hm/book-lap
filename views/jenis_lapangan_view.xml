@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="j_lap_view_tree" model="ir.ui.view">
+        <field name="name">j_lap.view.tree</field>
+        <field name="model">h.jenislapangan</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+                <field name="lokasi" />
+                <field name="lapangan_ids" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="j_lap_view_form" model="ir.ui.view">
+        <field name="name">j_lap.view.form</field>
+        <field name="model">h.jenislapangan</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="lokasi" />
+                        <field name="lapangan_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="j_lap_action" model="ir.actions.act_window">
+        <field name="name">Jenis lapangan</field>
+        <field name="res_model">h.jenislapangan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="jenis_lapangan_menu"
+        name="Jenis lapangan"
+        action="j_lap_action"
+        parent="lapangan_menu_categ"
+        sequence="10"/>
+
+</odoo>

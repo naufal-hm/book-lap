@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="transaksi_view_tree" model="ir.ui.view">
+        <field name="name">transaksi.view.tree</field>
+        <field name="model">h.trx</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+                <field name="non_member" />
+                <field name="waktu" />
+                <field name="lapangan_id" />
+                <field name="detailtrx_ids" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="transaksi_view_form" model="ir.ui.view">
+        <field name="name">transaksi.view.form</field>
+        <field name="model">h.trx</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button string="Draft" name="st_button_draft" type="object" class="oe_highlight" states='confirm'/>
+                    <button string="Done" name="st_button_done" type="object" class="oe_highlight" states='confirm' confirm='anda yakin confirm?'/>
+                    <button string="Confirm" name="st_button_confirm" type="object" class="oe_highlight" states='draft'/>
+                    <button string="Cancel" name="st_button_cancel" type="object" class="oe_highlight" states='confirm'/>
+                    <field name="state" widget='statusbar' statusbar_visible='draft,confirm,done'/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" attrs="{'readonly': [('state', '!=','draft')]}"/>
+                        <field name="non_member" attrs="{'readonly': [('state', '!=','draft')]}"/>
+                        <field name="waktu" attrs="{'readonly': [('state', '!=','draft')]}"/>
+                        <field name="lapangan_id" attrs="{'readonly': [('state', '!=','draft')]}"/>
+                        <field name="total_bayar" attrs="{'readonly': [('state', '!=','draft')]}"/>
+                    </group>
+                    <group name="" string="">
+                            <field name="detailtrx_ids" attrs="{'readonly': [('state', '!=','draft')]}">
+                                <tree editable='bottom'>
+                                    <field name="barang_id" />
+                                    <field name="harga_satuan" />
+                                    <field name="qty" />
+                                    <field name="sub_total" sum="Total"/>
+                                </tree>
+                            </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="transaksi_action" model="ir.actions.act_window">
+        <field name="name">Transaksi</field>
+        <field name="res_model">h.trx</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="trx_menu"
+        name="transaksi"
+        action="transaksi_action"
+        parent="sport_root_menu"
+        sequence="10"/>
+
+</odoo>

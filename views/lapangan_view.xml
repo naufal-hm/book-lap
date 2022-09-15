@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="lapangan_view_tree" model="ir.ui.view">
+        <field name="name">lapangan.view.tree</field>
+        <field name="model">h.lapangan</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="id_lapangan" />
+                <field name="name" />
+                <field name="jenis_lap" />
+                <field name="harga_lap" />
+                <field name="jenislapangan_id" />
+                <field name="waktu_kosong" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="lapangan_view_form" model="ir.ui.view">
+        <field name="name">lapangan.view.form</field>
+        <field name="model">h.lapangan</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="id_lapangan" />
+                        <field name="name" />
+                        <field name="jenis_lap" />
+                        <field name="harga_lap" />
+                        <field name="jenislapangan_id" />
+                        <field name="waktu_kosong" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="lapangan_action" model="ir.actions.act_window">
+        <field name="name">Lapangan</field>
+        <field name="res_model">h.lapangan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="lapangan_menu"
+        name="lapangan"
+        action="lapangan_action"
+        parent="lapangan_menu_categ"
+        sequence="10"/>
+
+</odoo>
