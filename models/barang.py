@@ -10,7 +10,7 @@ class jajan(models.Model):
     tgl_pembelian = fields.Date('tanggal pembelian')
     harga_jual = fields.Integer('harga jual')
 
-    kateg_id = fields.Many2one('h.barangkateg', string='kategori')
+    kateg_id = fields.Many2one('h.barangkateg', string='kategori', ondelete='cascade')
 
     detailtrx_ids = fields.One2many('h.detailtrx', 'barang_id', string='detail transaksi')
 
