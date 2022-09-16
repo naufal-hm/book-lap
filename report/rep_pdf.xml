@@ -41,7 +41,10 @@
                         </div>
                         <div class='row'>
                             <div class='col-4'>barang :</div>
-                            <div class='col-7'><span t-field='o.detailtrx_ids'></span></div>
+                            <t t-foreach="o.detailtrx_ids" t-as="ii">
+                                 <div class='col-7'><span t-field='ii.barang_id.name'></span></div>
+
+                            </t>
                         </div>
                         <div class='row'>
                             <div class='col-4'>status :</div>

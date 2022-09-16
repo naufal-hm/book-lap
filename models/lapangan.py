@@ -1,6 +1,6 @@
-from email.policy import default
 from odoo import api, fields, models
-import datetime, time
+import time
+from datetime import datetime
 
 
 class Lap(models.Model):
@@ -11,13 +11,21 @@ class Lap(models.Model):
     name = fields.Char('nama lapangan')
     jenis_lap = fields.Char('tipe lapangan')
     harga_lap = fields.Integer('harga lapangan')
-    # waktu_sibuk = fields.Integer('waktu sibuk')
+    # waktu_sibuk  fields.Integer('waktu sibuk')
     waktu_kosong = fields.Datetime('waktu kosong', default=fields.datetime.now())
 
-    field_name = fields.Char(compute='_compute_field_name', string='field_name')
-
-
-
+    waktu = fields.Datetime('waktu', default=datetime.now())
+    waku = fields.Datetime('waku', default=datetime.now())
+    @api.onchange('waktu')
+    def _onchange_waktu(self):
+        if self.waktu < self.waku:
+            self.waktu = self.waku
+            return{
+                'warning':{
+                    'title':'warning',
+                    'message':'tidak dapat memilih kemarin'
+                }
+            }
 
     jenislapangan_id = fields.Many2one('h.jenislapangan', string='jenis lapangan')
     transaksi_id = fields.Many2one('h.trx', string='transaksi')

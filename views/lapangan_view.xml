@@ -11,7 +11,7 @@
                 <field name="jenis_lap" />
                 <field name="harga_lap" />
                 <field name="jenislapangan_id" />
-                <field name="waktu_kosong" />
+                <field name="waktu" />
             </tree>
         </field>
     </record>
@@ -28,7 +28,7 @@
                         <field name="jenis_lap" />
                         <field name="harga_lap" />
                         <field name="jenislapangan_id" />
-                        <field name="waktu_kosong" />
+                        <field name="waktu" />
                     </group>
                 </sheet>
             </form>

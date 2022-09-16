@@ -17,6 +17,16 @@ class trx(models.Model):
 
     detailtrx_ids = fields.One2many('h.detailtrx', 'trx_id', string='detail transaksi')
 
+    @api.onchange('name','non_member')
+    def _onchange_name(self):
+        if self.name and self.non_member:
+            return{
+                'warning':{
+                    'title': 'warning',
+                    'message': 'hanya isi salah satu antara member atau non member'
+                }
+            }
+
     state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done'),
